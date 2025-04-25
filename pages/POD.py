@@ -4,9 +4,14 @@ import os
 # Set page configuration
 st.set_page_config(page_title="POD – Auto Rename ZIP", layout="wide")
 
-# Custom CSS styles
+# Custom CSS styles for consistent sidebar background
 st.markdown("""
     <style>
+        /* Sidebar Background Styling */
+        [data-testid="stSidebar"] {
+            background-color: #F5F5F5; /* Light gray background for sidebar */
+        }
+
         /* General Page Styling */
         body {
             font-family: 'Arial', sans-serif;
