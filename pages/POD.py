@@ -1,5 +1,5 @@
 import streamlit as st
-import os  # Import the os module
+import os
 
 # Set page configuration
 st.set_page_config(page_title="POD – Auto Rename ZIP", layout="wide")
@@ -43,10 +43,10 @@ st.markdown("""
             font-size: 1rem;
             margin-bottom: 1rem;
         }
-        .download-section .stDownloadButton {
+        .stDownloadButton {
             display: inline-block;
-            background: linear-gradient(to bottom, #CF3331, #A82828); /* Red gradient background */
-            color: white;
+            background-color: #CF3331; /* Red background */
+            color: white; /* White text */
             padding: 0.5rem 1.5rem;
             border: none;
             border-radius: 8px;
@@ -54,9 +54,11 @@ st.markdown("""
             font-weight: bold;
             text-align: center;
             cursor: pointer;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1); /* Add shadow for shape consistency */
         }
-        .download-section .stDownloadButton:hover {
-            background: linear-gradient(to bottom, #A82828, #CF3331); /* Reverse gradient on hover */
+        .stDownloadButton:hover {
+            background-color: #A82828; /* Darker red on hover */
+            box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
         }
     </style>
 """, unsafe_allow_html=True)
@@ -70,17 +72,17 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Add a centered download button
-# Use a relative path to locate the file
-file_path = os.path.join(os.path.dirname(__file__), "rename_file_pod.bat")
+# Use a relative path to locate the file in the same folder as POD.py
+file_path = os.path.join(os.path.dirname(__file__), "rename_file_pod (1).bat")
 try:
     with open(file_path, "rb") as file:
         st.markdown("<div style='text-align: center;'>", unsafe_allow_html=True)
         st.download_button(
             label="Download Auto Rename ZIP Tool",
             data=file,
-            file_name="rename_file_pod.bat",
+            file_name="Auto_Rename_ZIP_Tool.bat",  # Change the download file name if needed
             mime="application/octet-stream"
         )
         st.markdown("</div>", unsafe_allow_html=True)
 except FileNotFoundError:
-    st.error("The file 'rename_file_pod.bat' was not found. Please ensure it exists in the same directory as this script.")
+    st.error("The file 'rename_file_pod (1).bat' was not found. Please ensure it exists in the 'pages' folder.")
