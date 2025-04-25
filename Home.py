@@ -99,11 +99,8 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Sidebar dropdown navigation
-page = st.sidebar.selectbox(
-    "Select a Page",
-    ["Home", "Vendor Tiering", "Data Blasting Krani", "Report Posisi Armada", "POD – Auto Rename ZIP", "Maintenance Schedule", "KIR Schedule"]
-)
+# Hardcoded navigation links
+page = "Home"  # Default page
 
 # Page-specific content
 if page == "Home":
@@ -127,6 +124,7 @@ if page == "Home":
             <div class="project-card">
                 <h3>📦 Vendor Tiering</h3>
                 <p>View rankings of vendors based on specific criteria.</p>
+                <a href="/Vendor_Tiering">Open</a>
             </div>
         """, unsafe_allow_html=True)
 
@@ -136,6 +134,7 @@ if page == "Home":
             <div class="project-card">
                 <h3>💬 Data Blasting Krani</h3>
                 <p>Convert raw data into chat-ready messages.</p>
+                <a href="/Data_Blasting_Krani">Open</a>
             </div>
         """, unsafe_allow_html=True)
 
@@ -145,6 +144,7 @@ if page == "Home":
             <div class="project-card">
                 <h3>📍 Report Posisi Armada</h3>
                 <p>Track the current positions of all operational vehicles.</p>
+                <a href="/Report_Posisi_Armada">Open</a>
             </div>
         """, unsafe_allow_html=True)
 
@@ -153,6 +153,7 @@ if page == "Home":
             <div class="project-card">
                 <h3>🗂 POD – Auto Rename ZIP</h3>
                 <p>Upload ZIP files for automated renaming based on delivery orders.</p>
+                <a href="/POD_Auto_Rename_ZIP">Open</a>
             </div>
         """, unsafe_allow_html=True)
 
@@ -162,6 +163,7 @@ if page == "Home":
             <div class="project-card">
                 <h3>🛠 Maintenance Schedule</h3>
                 <p>Manage and review maintenance schedules for fleet vehicles.</p>
+                <a href="/Maintenance_Schedule">Open</a>
             </div>
         """, unsafe_allow_html=True)
 
@@ -171,6 +173,7 @@ if page == "Home":
             <div class="project-card">
                 <h3>🗓 KIR Schedule</h3>
                 <p>Monitor inspection schedules and KIR documentation.</p>
+                <a href="/KIR_Schedule">Open</a>
             </div>
         """, unsafe_allow_html=True)
 
