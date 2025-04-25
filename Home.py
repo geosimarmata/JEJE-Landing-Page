@@ -102,7 +102,15 @@ st.markdown("""
 # Sidebar dropdown navigation
 page = st.sidebar.selectbox(
     "Select a Page",
-    ["Home", "Vendor Tiering", "Data Blasting Krani", "Report Posisi Armada", "POD – Auto Rename ZIP", "Maintenance Schedule", "KIR Schedule"]
+    [
+        "Home",
+        "Vendor Tiering",
+        "Data Blasting Krani",
+        "Report Posisi Armada",
+        "POD – Auto Rename ZIP",
+        "Maintenance Schedule",
+        "KIR Schedule",
+    ]
 )
 
 # Page-specific content
