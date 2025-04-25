@@ -135,7 +135,6 @@ if page == "Home":
             <div class="project-card">
                 <h3>📦 Vendor Tiering</h3>
                 <p>View rankings of vendors based on specific criteria.</p>
-                <a href="/Vendor_Tiering">Open</a>
             </div>
         """, unsafe_allow_html=True)
 
@@ -145,7 +144,6 @@ if page == "Home":
             <div class="project-card">
                 <h3>💬 Data Blasting Krani</h3>
                 <p>Convert raw data into chat-ready messages.</p>
-                <a href="/Data_Blasting_Krani">Open</a>
             </div>
         """, unsafe_allow_html=True)
 
@@ -155,7 +153,6 @@ if page == "Home":
             <div class="project-card">
                 <h3>📍 Report Posisi Armada</h3>
                 <p>Track the current positions of all operational vehicles.</p>
-                <a href="/Report_Posisi_Armada">Open</a>
             </div>
         """, unsafe_allow_html=True)
 
@@ -164,7 +161,6 @@ if page == "Home":
             <div class="project-card">
                 <h3>🗂 POD – Auto Rename ZIP</h3>
                 <p>Upload ZIP files for automated renaming based on delivery orders.</p>
-                <a href="/POD_Auto_Rename_ZIP">Open</a>
             </div>
         """, unsafe_allow_html=True)
 
@@ -174,7 +170,6 @@ if page == "Home":
             <div class="project-card">
                 <h3>🛠 Maintenance Schedule</h3>
                 <p>Manage and review maintenance schedules for fleet vehicles.</p>
-                <a href="/Maintenance_Schedule">Open</a>
             </div>
         """, unsafe_allow_html=True)
 
@@ -184,7 +179,6 @@ if page == "Home":
             <div class="project-card">
                 <h3>🗓 KIR Schedule</h3>
                 <p>Monitor inspection schedules and KIR documentation.</p>
-                <a href="/KIR_Schedule">Open</a>
             </div>
         """, unsafe_allow_html=True)
 
@@ -204,4 +198,22 @@ elif page == "Vendor Tiering":
     st.title("Vendor Tiering")
     st.write("This is the Vendor Tiering page.")
 
-# Add similar elif blocks for other pages as needed.
+elif page == "Data Blasting Krani":
+    st.title("Data Blasting Krani")
+    st.write("This is the Data Blasting Krani page.")
+
+elif page == "Report Posisi Armada":
+    st.title("Report Posisi Armada")
+    st.write("This is the Report Posisi Armada page.")
+
+elif page == "POD – Auto Rename ZIP":
+    st.title("POD – Auto Rename ZIP")
+    st.write("This is the POD – Auto Rename ZIP page.")
+
+elif page == "Maintenance Schedule":
+    st.title("Maintenance Schedule")
+    st.write("This is the Maintenance Schedule page.")
+
+elif page == "KIR Schedule":
+    st.title("KIR Schedule")
+    st.write("This is the KIR Schedule page.")
