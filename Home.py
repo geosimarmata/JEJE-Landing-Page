@@ -104,14 +104,10 @@ page = "Home"  # Default page
 
 # Page-specific content
 if page == "Home":
-    # Home Page Content
-    st.title("Home Page")
-    st.write("Welcome to the automation system!")
-
     # Title Section
     st.markdown("""
         <div class="title-container">
-            <h1>📊 JHT/SJL Data Portal</h1>
+            <h1>🏠︎ JHT/SJL Data Portal</h1>
             <p>Analyze, automate, and monitor logistics data in one neat place.</p>
         </div>
     """, unsafe_allow_html=True)
