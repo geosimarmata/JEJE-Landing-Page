@@ -69,16 +69,16 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Add a centered download button
-file_path = r"E:\# JEJE Projects\Project 1\rename_file_pod (1).bat"
+file_path = os.path.join(os.path.dirname(__file__), "rename_file_pod.bat")
 try:
     with open(file_path, "rb") as file:
         st.markdown("<div style='text-align: center;'>", unsafe_allow_html=True)
         st.download_button(
             label="Download Auto Rename ZIP Tool",
             data=file,
-            file_name="rename_file_pod (1).bat",
+            file_name="Auto_Rename_POD_Tool.bat",
             mime="application/octet-stream"
         )
         st.markdown("</div>", unsafe_allow_html=True)
 except FileNotFoundError:
-    st.error("The file 'rename_file_pod (1).bat' was not found. Please ensure it exists in the specified path.")
+    st.error("The file 'rename_file_pod.bat' was not found. Please ensure it exists in the specified path.")
