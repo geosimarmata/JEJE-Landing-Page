@@ -37,26 +37,36 @@ st.markdown("""
             font-size: 1.2rem;
         }
 
-        /* Download Section Styling */
-        .download-section {
+        /* Download Button Styling */
+        .download-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 2rem;
             text-align: center;
-            margin-top: 2rem;
+            background: linear-gradient(to bottom, #F97316, #FB923C); /* Gradient background */
+            box-shadow: 2px 2px 8px rgba(0,0,0,0.05);
+            margin: 2rem auto;
+            width: 50%; /* Center the card and limit its width */
         }
-        .download-section h3 {
-            color: #F97316;
-            font-size: 1.8rem;
+        .download-card:hover {
+            box-shadow: 4px 4px 12px rgba(0,0,0,0.15);
+            transform: scale(1.02);
+        }
+        .download-card h3 {
+            color: #FFFFFF; /* White text for titles */
+            font-size: 1.5rem;
             margin-bottom: 1rem;
         }
-        .download-section p {
-            color: #555555;
+        .download-card p {
+            color: #FFFFFF; /* White text for descriptions */
             font-size: 1rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
         }
         .stDownloadButton {
             display: inline-block;
             background-color: #CF3331; /* Red button background */
             color: white; /* White text */
-            padding: 0.5rem 1.5rem;
+            padding: 0.75rem 1.5rem;
             border: none;
             border-radius: 8px;
             font-size: 1rem;
@@ -80,14 +90,17 @@ st.markdown("""
     </div>
 """, unsafe_allow_html=True)
 
-# Add a centered download button
-# Use a relative path to locate the file in the same folder as POD.py
+# Add a styled download card with a button
 file_path = os.path.join(os.path.dirname(__file__), "rename_file_pod (1).bat")
 try:
     with open(file_path, "rb") as file:
-        st.markdown("<div style='text-align: center;'>", unsafe_allow_html=True)
+        st.markdown("""
+            <div class="download-card">
+                <h3>Download Auto Rename ZIP Tool</h3>
+                <p>Click the button below to download the tool.</p>
+        """, unsafe_allow_html=True)
         st.download_button(
-            label="Download Auto Rename ZIP Tool",
+            label="Download",
             data=file,
             file_name="Auto_Rename_ZIP_Tool.bat",  # Change the download file name if needed
             mime="application/octet-stream"
