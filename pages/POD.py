@@ -37,7 +37,7 @@ st.markdown("""
             font-size: 1.2rem;
         }
 
-        /* Download Button Styling */
+        /* Download Card Styling */
         .download-card {
             border: 1px solid #e0e0e0;
             border-radius: 12px;
@@ -62,10 +62,12 @@ st.markdown("""
             font-size: 1rem;
             margin-bottom: 1.5rem;
         }
+
+        /* Download Button Styling */
         .stDownloadButton {
             display: inline-block;
             background-color: #CF3331; /* Red button background */
-            color: white; /* White text */
+            color: white !important; /* Force white text */
             padding: 0.75rem 1.5rem;
             border: none;
             border-radius: 8px;
@@ -78,6 +80,9 @@ st.markdown("""
         .stDownloadButton:hover {
             background-color: #A82828; /* Darker red on hover */
             box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+        }
+        .stDownloadButton:active {
+            background-color: #A82828; /* Keep the darker red when clicked */
         }
     </style>
 """, unsafe_allow_html=True)
