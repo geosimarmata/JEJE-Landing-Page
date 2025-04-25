@@ -4,12 +4,16 @@ import os
 # Set page configuration
 st.set_page_config(page_title="POD – Auto Rename ZIP", layout="wide")
 
-# Custom CSS styles for consistent sidebar background
+# Custom CSS styles for consistent design
 st.markdown("""
     <style>
-        /* Sidebar Background Styling */
+        /* Sidebar Styling */
         [data-testid="stSidebar"] {
-            background-color: #F5F5F5; /* Light gray background for sidebar */
+            background: linear-gradient(to bottom, #F97316, #FB923C); /* Gradient background */
+            color: white;
+        }
+        [data-testid="stSidebar"] .css-1d391kg {
+            color: white; /* Text color for dropdown */
         }
 
         /* General Page Styling */
@@ -50,7 +54,7 @@ st.markdown("""
         }
         .stDownloadButton {
             display: inline-block;
-            background-color: #CF3331; /* Red background */
+            background-color: #CF3331; /* Red button background */
             color: white; /* White text */
             padding: 0.5rem 1.5rem;
             border: none;
