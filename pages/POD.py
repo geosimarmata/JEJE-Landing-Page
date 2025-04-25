@@ -1,5 +1,5 @@
 import streamlit as st
-import os
+import os  # Import the os module
 
 # Set page configuration
 st.set_page_config(page_title="POD – Auto Rename ZIP", layout="wide")
@@ -70,6 +70,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Add a centered download button
+# Use a relative path to locate the file
 file_path = os.path.join(os.path.dirname(__file__), "rename_file_pod.bat")
 try:
     with open(file_path, "rb") as file:
@@ -77,9 +78,9 @@ try:
         st.download_button(
             label="Download Auto Rename ZIP Tool",
             data=file,
-            file_name="Auto_Rename_POD_Tool.bat",
+            file_name="rename_file_pod.bat",
             mime="application/octet-stream"
         )
         st.markdown("</div>", unsafe_allow_html=True)
 except FileNotFoundError:
-    st.error("The file 'rename_file_pod.bat' was not found. Please ensure it exists in the specified path.")
+    st.error("The file 'rename_file_pod.bat' was not found. Please ensure it exists in the same directory as this script.")
