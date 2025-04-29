@@ -1,3 +1,6 @@
+# Second Vers. of Home.py
+# Better Layout, Better Output
+
 import streamlit as st
 
 # Set page configuration
@@ -99,8 +102,19 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Hardcoded navigation links
-page = "Home"  # Default page
+# Dropdown menu for navigation
+page = st.sidebar.selectbox(
+    "Navigate to:",
+    [
+        "Home",
+        "Vendor Tiering",
+        "Data Blasting Krani",
+        "Report Posisi Armada",
+        "POD – Auto Rename ZIP",
+        "Maintenance Schedule",
+        "KIR Schedule",
+    ]
+)
 
 # Page-specific content
 if page == "Home":
@@ -189,4 +203,22 @@ elif page == "Vendor Tiering":
     st.title("Vendor Tiering")
     st.write("This is the Vendor Tiering page.")
 
-# Add similar elif blocks for other pages as needed.
+elif page == "Data Blasting Krani":
+    st.title("Data Blasting Krani")
+    st.write("This is the Data Blasting Krani page.")
+
+elif page == "Report Posisi Armada":
+    st.title("Report Posisi Armada")
+    st.write("This is the Report Posisi Armada page.")
+
+elif page == "POD – Auto Rename ZIP":
+    st.title("POD – Auto Rename ZIP")
+    st.write("This is the POD – Auto Rename ZIP page.")
+
+elif page == "Maintenance Schedule":
+    st.title("Maintenance Schedule")
+    st.write("This is the Maintenance Schedule page.")
+
+elif page == "KIR Schedule":
+    st.title("KIR Schedule")
+    st.write("This is the KIR Schedule page.")
