@@ -149,7 +149,7 @@ if page == "Home":
             <div class="project-card">
                 <h3>🗂 POD – Auto Rename ZIP</h3>
                 <p>Upload ZIP files for automated renaming based on delivery orders.</p>
-                <a href="/POD_Auto_Rename_ZIP">Open</a>
+                <a href="/POD">Open</a>
             </div>
         """, unsafe_allow_html=True)
 
