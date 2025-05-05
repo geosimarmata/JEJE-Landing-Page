@@ -224,11 +224,17 @@ if st.session_state.extract_dir and st.session_state.sheet_name:
                     # Sort by price
                     group = group.sort_values(by="price").copy()
                     
-                    # Assign tiers based on unique prices
-                    unique_prices = group["price"].unique()
-                    price_to_tier = {price: f"{i + 1}" for i, price in enumerate(unique_prices)}
-                    group["tier"] = group["price"].map(price_to_tier)
+                    # Explicitly set JHT/SJL as Tier 0
+                    group["tier"] = None  # Initialize the tier column
+                    group.loc[group["vendor"] == "JHT/SJL", "tier"] = "Tier 0"
                     
+                    # Assign tiers based on unique prices
+                    remaining = group[group["tier"].isnull()]
+                    unique_prices = remaining["price"].unique()
+                    price_to_tier = {price: f"Tier {i + 1}" for i, price in enumerate(unique_prices)}
+                    # group["tier"] = remaining["price"].map(price_to_tier)
+                    group.loc[group["tier"].isnull(), "tier"] = group.loc[group["tier"].isnull(), "price"].map(price_to_tier)
+    
                     return group
 
                 tiered_df = df.groupby(
