@@ -63,27 +63,33 @@ st.markdown("""
             margin-bottom: 1.5rem;
         }
 
-        /* Download Button Styling */
+        /* Download Button Styling - Attempt to remove red block */
         .stDownloadButton {
-            background-color: white; /* Initially white background */
+            background-color: transparent !important; /* Make the background transparent */
+            border: none !important; /* Remove any borders */
+            padding: 0 !important; /* Remove default padding */
+        }
+
+        .stDownloadButton > div:first-child { /* Target the inner div */
+            background-color: white; /* Set the white background for the visible button */
             color: #CF3331 !important; /* Force red text initially */
             padding: 0.75rem 1.5rem;
-            border: none;
             border-radius: 8px;
             font-size: 1rem;
             font-weight: bold;
             text-align: center;
-            cursor: pointer;
-            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1); /* Add shadow for shape consistency */
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
         }
-        .stDownloadButton:hover {
+
+        .stDownloadButton:hover > div:first-child {
             background-color: #CF3331; /* Red background on hover */
-            color: white !important; /* Ensure text becomes white on hover */
-            box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+            color: white !important; /* White text on hover */
+            box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
         }
-        .stDownloadButton:active {
-            background-color: #CF3331; /* Force red background when active (clicked) */
-            color: white !important; /* Ensure text remains white when active */
+
+        .stDownloadButton:active > div:first-child {
+            background-color: #A82828; /* Darker red when clicked */
+            color: white !important;
         }
     </style>
 """, unsafe_allow_html=True)
