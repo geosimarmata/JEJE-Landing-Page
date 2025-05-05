@@ -1,3 +1,6 @@
+# Second Vers. of Home.py
+# Better Layout, Better Output
+
 import streamlit as st
 
 # Set page configuration
@@ -6,6 +9,12 @@ st.set_page_config(page_title="JHT/SJL Data Portal", layout="wide")
 # Custom CSS styles
 st.markdown("""
     <style>
+        /* General Page Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #FFFFFF; /* White background */
+        }
+
         /* Sidebar Styling */
         [data-testid="stSidebar"] {
             background: linear-gradient(to bottom, #F97316, #FB923C); /* Gradient background */
@@ -13,12 +22,6 @@ st.markdown("""
         }
         [data-testid="stSidebar"] .css-1d391kg {
             color: white; /* Text color for dropdown */
-        }
-
-        /* General Page Styling */
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #FFFFFF; /* White background */
         }
 
         /* Title Section Styling */
@@ -107,25 +110,7 @@ st.markdown("""
     </div>
 """, unsafe_allow_html=True)
 
-# Custom Sidebar for Navigation
-st.sidebar.title("Navigation")
-selection = st.sidebar.radio("Go to", ["Home", "Vendor Checker", "POD", "Vendor Tiering"])
-
-# Display corresponding page content based on sidebar selection
-if selection == "Home":
-    st.title("Home Page")
-    # Add the content of your Home page here
-elif selection == "Vendor Checker":
-    st.title("Vendor Checker")
-    # Add the content of your Vendor Checker page here
-elif selection == "POD":
-    st.title("POD")
-    # Add the content of your POD page here
-elif selection == "Vendor Tiering":
-    st.title("Vendor Tiering")
-    # Add the content of your Vendor Tiering page here
-
-# Add Project Dashboard Grid content here for Home Page
+# Project Dashboard Grid
 col1, spacer, col2 = st.columns([1, 0.5, 1])
 
 with col1:
