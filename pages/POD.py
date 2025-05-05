@@ -64,10 +64,16 @@ st.markdown("""
         }
 
         /* Download Button Styling - Attempt to remove red block */
+        .download-button-wrapper { /* New wrapper div for centering */
+            text-align: center;
+            margin-top: 1rem; /* Add some space between the card and the button */
+        }
+
         .stDownloadButton {
             background-color: transparent !important; /* Make the background transparent */
             border: none !important; /* Remove any borders */
             padding: 0 !important; /* Remove default padding */
+            display: inline-block; /* Ensure it respects text-align */
         }
 
         .stDownloadButton > div:first-child { /* Target the inner div */
@@ -110,13 +116,15 @@ try:
             <div class="download-card">
                 <h3>Download Auto Rename ZIP Tool</h3>
                 <p>Click the button below to download the tool.</p>
-            """, unsafe_allow_html=True)
+            </div>
+        """, unsafe_allow_html=True)
+        st.markdown('<div class="download-button-wrapper">', unsafe_allow_html=True)
         st.download_button(
             label="Download",
             data=file,
             file_name="Auto_Rename_ZIP_Tool.bat",  # Change the download file name if needed
             mime="application/octet-stream"
         )
-        st.markdown("</div>", unsafe_allow_html=True)
+        st.markdown('</div>', unsafe_allow_html=True)
 except FileNotFoundError:
     st.error("The file 'rename_file_pod (1).bat' was not found. Please ensure it exists in the 'pages' folder.")
