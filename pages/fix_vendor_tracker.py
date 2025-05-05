@@ -2,6 +2,8 @@ import streamlit as st
 import pandas as pd
 import io
 
+st.set_page_config(page_title="Vendor Analyst Generator", layout="wide")
+
 # === Inject Custom CSS to Match Homepage ===
 st.markdown("""
     <style>
@@ -26,7 +28,6 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # === Page Config and Title ===
-st.set_page_config(page_title="Vendor Analyst Generator", layout="wide")
 st.title("📊 Vendor Analyst Generator")
 
 # Initialize session state for the dataframe if it doesn't exist
