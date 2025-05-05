@@ -278,6 +278,9 @@ if st.session_state.tiered_df is not None:
 
     # Display the filtered dataframe
     st.dataframe(filtered_df)
+    # display_columns = ["Type Truck", "Origin", "Destination", "Transporter", "Transport Price", "tier"]
+    # st.dataframe(filtered_df[display_columns].sort_values(by=["Type Truck", "Origin", "Destination", "tier"]))
+
 
     # Download button for the filtered CSV
     st.download_button(
