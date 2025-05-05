@@ -4,6 +4,7 @@ import io
 
 st.set_page_config(page_title="Vendor Analyst Generator", layout="wide")
 
+st.sidebar.title("Vendor Checker")
 # === Inject Custom CSS to Match Homepage ===
 st.markdown("""
     <style>
