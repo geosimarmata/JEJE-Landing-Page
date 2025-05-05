@@ -1,8 +1,3 @@
-# 
-# This is next model after test.py.
-# This model more robutst to generate tiering system for manny Shipper like OH!SOME, SPX FTL, LOTTE.
-# This model also can generate tiering system for all shipper in one click.
-
 import streamlit as st
 import zipfile
 import pandas as pd
@@ -17,74 +12,43 @@ st.set_page_config(page_title="Vendor Tiering System", layout="wide")
 st.markdown(
     """
     <style>
-    /* Sidebar background with smooth gradient */
     section[data-testid="stSidebar"] {
-        background: linear-gradient(to bottom, #F27F30, #F97316, #CF3331);  /* Smooth gradient */
+        background: linear-gradient(to bottom, #F27F30, #F97316, #CF3331);
         color: white;
     }
-
-    /* Extract button (blue) */
-    div.stButton > button:first-of-type {
-        background-color: #007AFF;  /* Blue color */
-        color: white;  /* White text */
-        border-radius: 8px;
-        padding: 0.5em 1em;
-        font-weight: bold;
-        border: none;
-    }
-    div.stButton > button:first-of-type:hover {
-        background-color: #005BB5;  /* Darker blue on hover */
-        color: white;  /* White text */
-    }
-
-    /* Generate button (blue) */
+    div.stButton > button:first-of-type,
     div.stButton > button:last-of-type {
-        background-color: #007AFF;  /* Blue color */
+        background-color: #007AFF;
         color: white;
         border-radius: 8px;
         padding: 0.5em 1em;
         font-weight: bold;
         border: none;
     }
+    div.stButton > button:first-of-type:hover,
     div.stButton > button:last-of-type:hover {
-        background-color: #005BB5;  /* Darker blue on hover */
+        background-color: #005BB5;
         color: white;
     }
-
-
-    /* Main area file uploader background */
     div[data-testid="stFileUploader"] {
-        background-color: #FFE6E6;  /* Soft light pink background */
-        color: #333333;  /* Dark text for file name */
+        background-color: #FFE6E6;
+        color: #333333;
         padding: 1em;
         border-radius: 10px;
-        border: 1px solid #FFB3B3;  /* Lighter red border */
+        border: 1px solid #FFB3B3;
         margin-bottom: 1em;
     }
-
-    /* File name text color */
     div[data-testid="stFileUploader"] .stFileUploader__fileName {
-        color: #333333;  /* Darker text */
+        color: #333333;
     }
-
-    /* File uploader instruction text color */
     div[data-testid="stFileUploader"] .stFileUploader__instructions {
-        color: #FF0000;  /* Red text for instructions */
+        color: #FF0000;
         font-weight: bold;
-    }
-
-    /* Custom styling for the upload ZIP section */
-    .stFileUploader__input {
-        background-color: #FFE6E6;  /* Light pink background */
-        color: #333333;  /* Dark text */
-        border-radius: 10px;
-        padding: 1em;
     }
     </style>
     """,
     unsafe_allow_html=True
 )
-
 
 st.title("📦 Vendor Tiering System for JEJE")
 
@@ -137,27 +101,18 @@ if uploaded_zip and st.sidebar.button("🔍 Extract & Load Sheets"):
     st.success(f"✅ Found {len(st.session_state.sheet_names)} unique sheet(s).")
 
 # ------------------------ SELECT SHEET ------------------------ #
-# Filter sheet names to include only specific ones
 desired_sheets = ["OH!SOME", "SPX FTL", "LOTTE"]
+filtered_sheet_names = [sheet for sheet in st.session_state.sheet_names or [] if sheet in desired_sheets]
 
-if st.session_state.sheet_names:  # Ensure sheet names are loaded
-    filtered_sheet_names = [sheet for sheet in st.session_state.sheet_names if sheet in desired_sheets]
-else:
-    filtered_sheet_names = []
-
-if uploaded_zip and st.session_state.sheet_names:  # Only show the select box if sheets are loaded
+if uploaded_zip and st.session_state.sheet_names:
     if filtered_sheet_names:
         st.session_state.sheet_name = st.sidebar.selectbox("📄 Select Sheet to Process", filtered_sheet_names)
     else:
-        # Display a warning with the file names that were processed
-        st.warning(
-            f"No matching sheets found in the uploaded files. "
-            f"Processed files: {', '.join([os.path.basename(file) for file in excel_files])}"
-        )
-        
-# Initialize all_data as an empty list
-all_data = []
+        st.warning("No matching sheets found in the uploaded files.")
+
 # ------------------------ GENERATE TIERING ------------------------ #
+all_data = []
+
 if st.session_state.extract_dir and st.session_state.sheet_name:
     if st.sidebar.button("⚙️ Generate Tiering System"):
         excel_files = []
@@ -177,8 +132,6 @@ if st.session_state.extract_dir and st.session_state.sheet_name:
                 except Exception as e:
                     st.warning(f"Error reading {os.path.basename(file_path)}: {e}")
 
-# ...existing code...
-
         if all_data:
             combined_df = pd.concat(all_data, ignore_index=True)
             st.session_state.combined_df = combined_df
@@ -188,22 +141,18 @@ if st.session_state.extract_dir and st.session_state.sheet_name:
             # Predefined truck types
             predefined_truck_types = ['VAN BOX', 'BLINDVAN', 'CDE', 'CDE LONG', 'CDD', 'CDD LONG', 'FUSO', 'FUSO LONG', 'TRONTON WINGBOX']
 
-            # Clean column names to remove "Unnamed" and "#REF!"
-            df.columns = df.columns.str.strip()  # Remove leading/trailing spaces
-            df.columns = df.columns.str.replace(r"Unnamed: \d+", "", regex=True)  # Remove "Unnamed: X"
-            df.columns = df.columns.str.replace(r"#REF!", "", regex=True)  # Remove "#REF!"
-            df.columns = df.columns.str.replace(r"\.+$", "", regex=True)  # Remove trailing dots
+            # Clean column names
+            df.columns = df.columns.str.strip()
+            df.columns = df.columns.str.replace(r"Unnamed: \d+", "", regex=True)
+            df.columns = df.columns.str.replace(r"#REF!", "", regex=True)
+            df.columns = df.columns.str.replace(r"\.+$", "", regex=True)
 
-            # Required ID columns
             id_columns = ['VENDOR', 'Origin City', 'Destination City']
-
-            # Dynamically detect truck type columns (intersection with predefined truck types)
             truck_type_columns = [col for col in df.columns if col in predefined_truck_types]
 
             if not truck_type_columns:
                 st.error("❌ No valid truck type columns found in the data. Please check the uploaded files.")
             else:
-                # Reshape the data based on detected truck types
                 df = df.melt(
                     id_vars=id_columns,
                     value_vars=truck_type_columns,
@@ -221,14 +170,10 @@ if st.session_state.extract_dir and st.session_state.sheet_name:
                 df = df.dropna(subset=['price']).drop_duplicates()
 
                 def assign_tiers(group):
-                    # Sort by price
                     group = group.sort_values(by="price").copy()
-                    
-                    # Assign tiers based on unique prices
                     unique_prices = group["price"].unique()
-                    price_to_tier = {price: f"{i + 1}" for i, price in enumerate(unique_prices)}
+                    price_to_tier = {price: str(i + 1) for i, price in enumerate(unique_prices)}
                     group["tier"] = group["price"].map(price_to_tier)
-                    
                     return group
 
                 tiered_df = df.groupby(
@@ -238,19 +183,16 @@ if st.session_state.extract_dir and st.session_state.sheet_name:
 
                 st.session_state.tiered_df = tiered_df[['truck_type', 'origin_city', 'destination_city', 'vendor', 'price', 'tier']]
                 st.success("✅ Tiering system generated!")
-        
-        
+
 # ------------------------ DATA PREVIEW & FILTER ------------------------ #
 if st.session_state.tiered_df is not None:
     st.header("📊 Tiered Vendor Data Preview")
     df = st.session_state.tiered_df
 
-    # Sidebar filters
     vendor_filter = st.sidebar.selectbox("🔎 Filter by Vendor", ["All"] + sorted(df["vendor"].unique()))
     origin_filter = st.sidebar.selectbox("📍 Filter by Origin City", ["All"] + sorted(df["origin_city"].unique()))
     destination_filter = st.sidebar.selectbox("🎯 Filter by Destination City", ["All"] + sorted(df["destination_city"].unique()))
 
-    # Apply filters
     filtered_df = df.copy()
     if vendor_filter != "All":
         filtered_df = filtered_df[filtered_df["vendor"] == vendor_filter]
@@ -259,33 +201,13 @@ if st.session_state.tiered_df is not None:
     if destination_filter != "All":
         filtered_df = filtered_df[filtered_df["destination_city"] == destination_filter]
 
-    # Rename columns and reorder them
     filtered_df = filtered_df.rename(columns={
         "truck_type": "Type Truck",
         "origin_city": "Origin",
         "destination_city": "Destination",
         "price": "Transport Price",
         "vendor": "Transporter",
-        "tier": "Tiering"
+        "tier": "Tier"
     })
-    filtered_df = filtered_df[["Type Truck", "Origin", "Destination", "Transport Price", "Transporter", "Tiering"]]
 
-    # Add a "Status" column with the value "Active" (can be commented out if not needed)
-    filtered_df["Status"] = "Active"
-
-    # Format the "Transport Price" column to remove ".0"
-    filtered_df["Transport Price"] = filtered_df["Transport Price"].astype(int)
-
-    # Display the filtered dataframe
-    st.dataframe(filtered_df)
-    # display_columns = ["Type Truck", "Origin", "Destination", "Transporter", "Transport Price", "tier"]
-    # st.dataframe(filtered_df[display_columns].sort_values(by=["Type Truck", "Origin", "Destination", "tier"]))
-
-
-    # Download button for the filtered CSV
-    st.download_button(
-        label="⬇️ Download Filtered CSV",
-        data=filtered_df.to_csv(index=False),
-        file_name="tiered_vendor_data.csv",
-        mime="text/csv"
-    )
+    st.dataframe(filtered_df.reset_index(drop=True))
