@@ -19,7 +19,7 @@ st.markdown(
     <style>
     /* Sidebar background with smooth gradient */
     section[data-testid="stSidebar"] {
-        background: linear-gradient(to bottom, #F27F30, #F97316, #CF3331);  /* Smooth gradient */
+        background: linear-gradient(to bottom, #F97316, #FB923C);  /* Smooth gradient */
         color: white;
     }
 
