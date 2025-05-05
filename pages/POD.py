@@ -82,8 +82,8 @@ st.markdown("""
             box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
         }
         .stDownloadButton:active {
-            background-color: #A82828; /* Darker red when clicked */
-            color: white !important; /* Ensure text remains white when clicked */
+            background-color: #CF3331; /* Force red background when active (clicked) */
+            color: white !important; /* Ensure text remains white when active */
         }
     </style>
 """, unsafe_allow_html=True)
