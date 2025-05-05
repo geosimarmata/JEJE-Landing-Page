@@ -226,7 +226,7 @@ if st.session_state.extract_dir and st.session_state.sheet_name:
                     
                     # Assign tiers based on unique prices
                     unique_prices = group["price"].unique()
-                    price_to_tier = {price: f"Tier {i + 1}" for i, price in enumerate(unique_prices)}
+                    price_to_tier = {price: f"{i + 1}" for i, price in enumerate(unique_prices)}
                     group["tier"] = group["price"].map(price_to_tier)
                     
                     return group
@@ -261,13 +261,14 @@ if st.session_state.tiered_df is not None:
 
     # Rename columns and reorder them
     filtered_df = filtered_df.rename(columns={
+        "truck_type": "Type Truck",
         "origin_city": "Origin",
         "destination_city": "Destination",
         "price": "Transport Price",
         "vendor": "Transporter",
         "tier": "Tiering"
     })
-    filtered_df = filtered_df[["Origin", "Destination", "Transport Price", "Transporter", "Tiering"]]
+    filtered_df = filtered_df[["Type Truck", "Origin", "Destination", "Transport Price", "Transporter", "Tiering"]]
 
     # Add a "Status" column with the value "Active" (can be commented out if not needed)
     filtered_df["Status"] = "Active"
