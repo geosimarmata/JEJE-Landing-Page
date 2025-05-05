@@ -20,7 +20,11 @@ st.markdown(
     /* Sidebar background with smooth gradient */
     section[data-testid="stSidebar"] {
         background: linear-gradient(to bottom, #F97316, #FB923C);  /* Smooth gradient */
-        color: white;
+        color: white !important;
+    }
+    /* Ensure all elements inside sidebar use white text */
+    [data-testid="stSidebar"] * {
+        color: white !important;
     }
 
     /* Extract button (blue) */
