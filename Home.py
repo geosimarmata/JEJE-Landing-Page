@@ -103,18 +103,18 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Dropdown menu for navigation
-page = st.sidebar.selectbox(
-    "Navigate to:",
-    [
-        "Home",
-        "Vendor Tiering",
-        "Data Blasting Krani",
-        "Report Posisi Armada",
-        "POD – Auto Rename ZIP",
-        "Maintenance Schedule",
-        "KIR Schedule",
-    ]
-)
+# page = st.sidebar.selectbox(
+#     "Navigate to:",
+#     [
+#         "Home",
+#         "Vendor Tiering",
+#         "Data Blasting Krani",
+#         "Report Posisi Armada",
+#         "POD – Auto Rename ZIP",
+#         "Maintenance Schedule",
+#         "KIR Schedule",
+#     ]
+# )
 
 # Page-specific content
 if page == "Home":
