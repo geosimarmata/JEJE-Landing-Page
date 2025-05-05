@@ -126,9 +126,9 @@ with col1:
 
     st.markdown("""
         <div class="project-card">
-            <h3>💬 Data Blasting Krani</h3>
-            <p>Convert raw data into chat-ready messages.</p>
-            <a href="/Data_Blasting_Krani">Open</a>
+            <h3>📈 Vendor Tracker</h3>
+            <p>Monitor and analyze vendor performance and key metrics.</p>
+            <a href="/Vendor Tracker 1">Open</a>
         </div>
     """, unsafe_allow_html=True)
 
