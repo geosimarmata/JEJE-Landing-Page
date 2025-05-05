@@ -66,7 +66,7 @@ st.markdown("""
         /* Download Button Styling */
         .stDownloadButton {
             background-color: white; /* Initially white background */
-            color: white !important; /* Force white text */
+            color: #CF3331 !important; /* Force red text initially */
             padding: 0.75rem 1.5rem;
             border: none;
             border-radius: 8px;
@@ -78,7 +78,7 @@ st.markdown("""
         }
         .stDownloadButton:hover {
             background-color: #CF3331; /* Red background on hover */
-            color: white !important; /* Ensure text remains white on hover */
+            color: white !important; /* Ensure text becomes white on hover */
             box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
         }
         .stDownloadButton:active {
