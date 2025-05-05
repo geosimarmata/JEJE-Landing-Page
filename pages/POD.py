@@ -64,12 +64,8 @@ st.markdown("""
         }
 
         /* Download Button Styling */
-        .download-button-container {
-            display: flex;
-            justify-content: center; /* Center the button horizontally */
-        }
         .stDownloadButton {
-            background-color: #CF3331; /* Red button background */
+            background-color: white; /* Initially white background */
             color: white !important; /* Force white text */
             padding: 0.75rem 1.5rem;
             border: none;
@@ -81,11 +77,13 @@ st.markdown("""
             box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1); /* Add shadow for shape consistency */
         }
         .stDownloadButton:hover {
-            background-color: #A82828; /* Darker red on hover */
+            background-color: #CF3331; /* Red background on hover */
+            color: white !important; /* Ensure text remains white on hover */
             box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
         }
         .stDownloadButton:active {
-            background-color: #A82828; /* Keep the darker red when clicked */
+            background-color: #A82828; /* Darker red when clicked */
+            color: white !important; /* Ensure text remains white when clicked */
         }
     </style>
 """, unsafe_allow_html=True)
@@ -107,14 +105,12 @@ try:
                 <h3>Download Auto Rename ZIP Tool</h3>
                 <p>Click the button below to download the tool.</p>
             """, unsafe_allow_html=True)
-        st.markdown('<div class="download-button-container">', unsafe_allow_html=True)
         st.download_button(
             label="Download",
             data=file,
             file_name="Auto_Rename_ZIP_Tool.bat",  # Change the download file name if needed
             mime="application/octet-stream"
         )
-        st.markdown("</div>", unsafe_allow_html=True)
         st.markdown("</div>", unsafe_allow_html=True)
 except FileNotFoundError:
     st.error("The file 'rename_file_pod (1).bat' was not found. Please ensure it exists in the 'pages' folder.")
