@@ -48,11 +48,6 @@ st.markdown("""
             transition: all 0.2s ease-in-out;
             background: linear-gradient(to bottom, #F97316, #FB923C); /* Gradient background */
             box-shadow: 2px 2px 8px rgba(0,0,0,0.05);
-            display: flex; /* Enable Flexbox for vertical centering */
-            flex-direction: column; /* Arrange items vertically */
-            justify-content: center; /* Center items vertically */
-            align-items: center; /* Center items horizontally (already there with text-align: center) */
-            height: 150px; /* Adjust height as needed */
         }
         .project-card:hover {
             box-shadow: 4px 4px 12px rgba(0,0,0,0.15);
