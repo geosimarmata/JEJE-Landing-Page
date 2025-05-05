@@ -63,9 +63,10 @@ st.markdown("""
             margin-bottom: 1.5rem;
         }
 
-        /* Download Button Styling - Attempt to remove red block */
+        /* Download Button Styling - Attempt to remove red block and center */
         .download-button-wrapper { /* New wrapper div for centering */
-            text-align: center;
+            display: flex; /* Use flexbox */
+            justify-content: center; /* Center content horizontally */
             margin-top: 1rem; /* Add some space between the card and the button */
         }
 
@@ -73,7 +74,6 @@ st.markdown("""
             background-color: transparent !important; /* Make the background transparent */
             border: none !important; /* Remove any borders */
             padding: 0 !important; /* Remove default padding */
-            display: inline-block; /* Ensure it respects text-align */
         }
 
         .stDownloadButton > div:first-child { /* Target the inner div */
