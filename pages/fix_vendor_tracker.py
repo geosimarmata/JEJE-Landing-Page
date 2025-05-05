@@ -7,26 +7,85 @@ st.set_page_config(page_title="Vendor Analyst Generator", layout="wide")
 # === Inject Custom CSS to Match Homepage ===
 st.markdown("""
     <style>
-        .main {
-            background-color: #f0f2f6;
+        /* Sidebar Styling */
+        [data-testid="stSidebar"] {
+            background: linear-gradient(to bottom, #F97316, #FB923C); /* Gradient background */
+            color: white;
         }
-        .stButton>button {
-            color: white !important;
-            background-color: #FF6F00 !important;
+        [data-testid="stSidebar"] .css-1d391kg {
+            color: white; /* Text color for dropdown */
+        }
+
+        /* General Page Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #FFFFFF; /* White background */
+        }
+
+        /* Title Section Styling */
+        .title-container {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .title-container h1 {
+            color: #F27F30;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .title-container p {
+            color: #555555;
+            font-size: 1.2rem;
+        }
+
+        /* Download Card Styling */
+        .download-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            background: linear-gradient(to bottom, #F97316, #FB923C); /* Gradient background */
+            box-shadow: 2px 2px 8px rgba(0,0,0,0.05);
+            margin: 2rem auto;
+            width: 50%; /* Center the card and limit its width */
+        }
+        .download-card:hover {
+            box-shadow: 4px 4px 12px rgba(0,0,0,0.15);
+            transform: scale(1.02);
+        }
+        .download-card h3 {
+            color: #FFFFFF; /* White text for titles */
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .download-card p {
+            color: #FFFFFF; /* White text for descriptions */
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Download Button Styling */
+        .stDownloadButton {
+            display: inline-block;
+            background-color: #CF3331; /* Red button background */
+            color: white !important; /* Force white text */
+            padding: 0.75rem 1.5rem;
             border: none;
-            border-radius: 6px;
-            padding: 0.5em 1em;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1); /* Add shadow for shape consistency */
         }
-        h1, h2, h3 {
-            color: #FF6F00;
+        .stDownloadButton:hover {
+            background-color: #A82828; /* Darker red on hover */
+            box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
         }
-        .stDownloadButton>button {
-            background-color: #FF6F00 !important;
-            color: white !important;
+        .stDownloadButton:active {
+            background-color: #A82828; /* Keep the darker red when clicked */
         }
     </style>
 """, unsafe_allow_html=True)
-
 # === Page Config and Title ===
 st.title("📊 Vendor Analyst Generator")
 
