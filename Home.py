@@ -102,102 +102,86 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Dropdown menu for navigation
-# page = st.sidebar.selectbox(
-#     "Navigate to:",
-#     [
-#         "Home",
-#         "Vendor Tiering",
-#         "Data Blasting Krani",
-#         "Report Posisi Armada",
-#         "POD – Auto Rename ZIP",
-#         "Maintenance Schedule",
-#         "KIR Schedule",
-#     ]
-# )
+# Title Section
+st.markdown("""
+    <div class="title-container">
+        <h1>🏠︎ JHT/SJL Data Portal</h1>
+        <p>Analyze, automate, and monitor logistics data in one neat place.</p>
+    </div>
+""", unsafe_allow_html=True)
 
-# Page-specific content
-if page == "Home":
-    # Title Section
+# Project Dashboard Grid
+col1, spacer, col2 = st.columns([1, 0.5, 1])
+
+with col1:
     st.markdown("""
-        <div class="title-container">
-            <h1>🏠︎ JHT/SJL Data Portal</h1>
-            <p>Analyze, automate, and monitor logistics data in one neat place.</p>
+        <div class="project-card">
+            <h3>📦 Vendor Tiering</h3>
+            <p>View rankings of vendors based on specific criteria.</p>
+            <a href="/Vendor_Tiering">Open</a>
         </div>
     """, unsafe_allow_html=True)
 
-    # Project Dashboard Grid with more space between columns
-    col1, spacer, col2 = st.columns([1, 0.5, 1])  # Increase the spacer column width to 0.5 for more space
+    st.markdown("<br>", unsafe_allow_html=True)
 
-    with col1:
-        st.markdown("""
-            <div class="project-card">
-                <h3>📦 Vendor Tiering</h3>
-                <p>View rankings of vendors based on specific criteria.</p>
-                <a href="/Vendor_Tiering">Open</a>
-            </div>
-        """, unsafe_allow_html=True)
-
-        st.markdown("<br>", unsafe_allow_html=True)  # Add vertical spacing between cards
-
-        st.markdown("""
-            <div class="project-card">
-                <h3>💬 Data Blasting Krani</h3>
-                <p>Convert raw data into chat-ready messages.</p>
-                <a href="/Data_Blasting_Krani">Open</a>
-            </div>
-        """, unsafe_allow_html=True)
-
-        st.markdown("<br>", unsafe_allow_html=True)  # Add vertical spacing between cards
-
-        st.markdown("""
-            <div class="project-card">
-                <h3>📍 Report Posisi Armada</h3>
-                <p>Track the current positions of all operational vehicles.</p>
-                <a href="/Report_Posisi_Armada">Open</a>
-            </div>
-        """, unsafe_allow_html=True)
-
-    with col2:
-        st.markdown("""
-            <div class="project-card">
-                <h3>🗂 POD – Auto Rename ZIP</h3>
-                <p>Upload ZIP files for automated renaming based on delivery orders.</p>
-                <a href="/POD">Open</a>
-            </div>
-        """, unsafe_allow_html=True)
-
-        st.markdown("<br>", unsafe_allow_html=True)  # Add vertical spacing between cards
-
-        st.markdown("""
-            <div class="project-card">
-                <h3>🛠 Maintenance Schedule</h3>
-                <p>Manage and review maintenance schedules for fleet vehicles.</p>
-                <a href="/Maintenance_Schedule">Open</a>
-            </div>
-        """, unsafe_allow_html=True)
-
-        st.markdown("<br>", unsafe_allow_html=True)  # Add vertical spacing between cards
-
-        st.markdown("""
-            <div class="project-card">
-                <h3>🗓 KIR Schedule</h3>
-                <p>Monitor inspection schedules and KIR documentation.</p>
-                <a href="/KIR_Schedule">Open</a>
-            </div>
-        """, unsafe_allow_html=True)
-
-    # Order Analysis Section
-    st.markdown("---")
     st.markdown("""
-        <div class="metabase-section">
-            <h3>🧠 Order Analysis via Metabase</h3>
-            <p>To analyze order data from JHT or SJL using Metabase, click the icon below:</p>
-            <a href="https://metabase.example.com" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Metabase_logo.png/320px-Metabase_logo.png" width="180"/>
-            </a>
+        <div class="project-card">
+            <h3>💬 Data Blasting Krani</h3>
+            <p>Convert raw data into chat-ready messages.</p>
+            <a href="/Data_Blasting_Krani">Open</a>
         </div>
     """, unsafe_allow_html=True)
+
+    st.markdown("<br>", unsafe_allow_html=True)
+
+    st.markdown("""
+        <div class="project-card">
+            <h3>📍 Report Posisi Armada</h3>
+            <p>Track the current positions of all operational vehicles.</p>
+            <a href="/Report_Posisi_Armada">Open</a>
+        </div>
+    """, unsafe_allow_html=True)
+
+with col2:
+    st.markdown("""
+        <div class="project-card">
+            <h3>🗂 POD – Auto Rename ZIP</h3>
+            <p>Upload ZIP files for automated renaming based on delivery orders.</p>
+            <a href="/POD">Open</a>
+        </div>
+    """, unsafe_allow_html=True)
+
+    st.markdown("<br>", unsafe_allow_html=True)
+
+    st.markdown("""
+        <div class="project-card">
+            <h3>🛠 Maintenance Schedule</h3>
+            <p>Manage and review maintenance schedules for fleet vehicles.</p>
+            <a href="/Maintenance_Schedule">Open</a>
+        </div>
+    """, unsafe_allow_html=True)
+
+    st.markdown("<br>", unsafe_allow_html=True)
+
+    st.markdown("""
+        <div class="project-card">
+            <h3>🗓 KIR Schedule</h3>
+            <p>Monitor inspection schedules and KIR documentation.</p>
+            <a href="/KIR_Schedule">Open</a>
+        </div>
+    """, unsafe_allow_html=True)
+
+# Order Analysis via Metabase
+st.markdown("---")
+st.markdown("""
+    <div class="metabase-section">
+        <h3>🧠 Order Analysis via Metabase</h3>
+        <p>To analyze order data from JHT or SJL using Metabase, click the icon below:</p>
+        <a href="https://metabase.example.com" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Metabase_logo.png/320px-Metabase_logo.png" width="180"/>
+        </a>
+    </div>
+""", unsafe_allow_html=True)
 
 elif page == "Vendor Tiering":
     st.title("Vendor Tiering")
