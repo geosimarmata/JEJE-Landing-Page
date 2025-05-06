@@ -178,7 +178,7 @@ st.markdown("""
         <h3>🧠 Order Analysis via Metabase</h3>
         <p>To analyze order data from JHT or SJL using Metabase, click the icon below:</p>
         <a href="https://metabase.jejeharapan.net/browse/databases" target="_blank">
-            <img src="https://github.com/geosimarmata/JEJE-Landing-Page/blob/main/images/png-clipart-metabase-logo-landscape-tech-companies.png?raw=true" width="180"/>
+            <img src="https://raw.githubusercontent.com/geosimarmata/JEJE-Landing-Page/refs/heads/main/images/images.png" width="180"/>
         </a>
     </div>
 """, unsafe_allow_html=True)
