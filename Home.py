@@ -177,7 +177,7 @@ st.markdown("""
     <div class="metabase-section">
         <h3>🧠 Order Analysis via Metabase</h3>
         <p>To analyze order data from JHT or SJL using Metabase, click the icon below:</p>
-        <a href="https://metabase.example.com" target="_blank">
+        <a href="https://metabase.jejeharapan.net/browse/databases" target="_blank">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Metabase_logo.png/320px-Metabase_logo.png" width="180"/>
         </a>
     </div>
