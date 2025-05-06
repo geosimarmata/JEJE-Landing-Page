@@ -5,6 +5,7 @@ import os
 st.set_page_config(page_title="POD – Auto Rename ZIP", layout="wide")
 
 # Custom CSS styles for consistent design
+# Custom CSS styles for consistent design
 st.markdown("""
     <style>
         /* Sidebar Styling */
@@ -42,11 +43,15 @@ st.markdown("""
             border: 1px solid #e0e0e0;
             border-radius: 12px;
             padding: 2rem;
-            text-align: center; /* Keep text centered within the card */
+            text-align: center; /* Center content within the card */
             background: linear-gradient(to bottom, #F97316, #FB923C); /* Gradient background */
             box-shadow: 2px 2px 8px rgba(0,0,0,0.05);
             margin: 2rem auto;
             width: 50%; /* Center the card and limit its width */
+            display: flex; /* Enable flexbox for positioning within the card */
+            flex-direction: column; /* Stack items vertically */
+            align-items: center; /* Center items horizontally */
+            justify-content: center; /* Center items vertically */
         }
         .download-card:hover {
             box-shadow: 4px 4px 12px rgba(0,0,0,0.15);
@@ -55,49 +60,51 @@ st.markdown("""
         .download-card h3 {
             color: #FFFFFF; /* White text for titles */
             font-size: 1.5rem;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem; /* Reduced margin */
         }
         .download-card p {
             color: #FFFFFF; /* White text for descriptions */
             font-size: 1rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem; /* Reduced margin */
         }
 
-        /* Download Button Styling - Attempt to remove red block and center */
-        .download-button-wrapper { /* New wrapper div for centering */
-            display: flex; /* Use flexbox */
-            justify-content: center; /* Center content horizontally */
-            margin-top: 1rem; /* Add some space between the card and the button */
-        }
-
+        /* Style the Streamlit download button directly */
         .stDownloadButton {
-            background-color: transparent !important; /* Make the background transparent */
-            border: none !important; /* Remove any borders */
+            margin-top: 1rem; /* Add some space above the button */
             padding: 0 !important; /* Remove default padding */
         }
 
-        .stDownloadButton > div:first-child { /* Target the inner div */
-            background-color: white; /* Set the white background for the visible button */
-            color: #CF3331 !important; /* Force red text initially */
+        .stDownloadButton > div:first-child { /* The actual button element */
+            background-color: white;
+            color: #CF3331 !important;
             padding: 0.75rem 1.5rem;
             border-radius: 8px;
             font-size: 1rem;
             font-weight: bold;
             text-align: center;
             box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+            border: none !important;
         }
 
         .stDownloadButton:hover > div:first-child {
-            background-color: #CF3331; /* Red background on hover */
-            color: white !important; /* White text on hover */
+            background-color: #CF3331;
+            color: white !important;
             box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
         }
 
         .stDownloadButton:active > div:first-child {
-            background-color: #A82828; /* Darker red when clicked */
+            background-color: #A82828;
             color: white !important;
         }
     </style>
+""", unsafe_allow_html=True)
+
+# Title Section
+st.markdown("""
+    <div class="title-container">
+        <h1>🗂 POD – Auto Rename ZIP</h1>
+        <p>Download the Auto Rename ZIP tool to automate renaming based on delivery orders.</p>
+    </div>
 """, unsafe_allow_html=True)
 
 # Title Section
