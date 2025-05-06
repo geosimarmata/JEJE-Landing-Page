@@ -5,7 +5,6 @@ import os
 st.set_page_config(page_title="POD – Auto Rename ZIP", layout="wide")
 
 # Custom CSS styles for consistent design
-# Custom CSS styles for consistent design
 st.markdown("""
     <style>
         /* Sidebar Styling */
@@ -48,14 +47,6 @@ st.markdown("""
             box-shadow: 2px 2px 8px rgba(0,0,0,0.05);
             margin: 2rem auto;
             width: 50%; /* Center the card and limit its width */
-            display: flex; /* Enable flexbox for positioning within the card */
-            flex-direction: column; /* Stack items vertically */
-            align-items: center; /* Center items horizontally */
-            justify-content: center; /* Center items vertically */
-        }
-        .download-card:hover {
-            box-shadow: 4px 4px 12px rgba(0,0,0,0.15);
-            transform: scale(1.02);
         }
         .download-card h3 {
             color: #FFFFFF; /* White text for titles */
@@ -68,9 +59,15 @@ st.markdown("""
             margin-bottom: 1rem; /* Reduced margin */
         }
 
+        /* Download Button Container INSIDE the card */
+        .download-button-container {
+            display: flex;
+            justify-content: center; /* Center the button horizontally */
+            margin-top: 1rem; /* Add some space above the button */
+        }
+
         /* Style the Streamlit download button directly */
         .stDownloadButton {
-            margin-top: 1rem; /* Add some space above the button */
             padding: 0 !important; /* Remove default padding */
         }
 
