@@ -1,4 +1,6 @@
-# Home.py
+
+# Second Vers. of Home.py
+# Better Layout, Better Output
 
 import streamlit as st
 
@@ -8,14 +10,22 @@ st.set_page_config(page_title="JHT/SJL Data Portal", layout="wide")
 # Custom CSS styles
 st.markdown("""
     <style>
+        /* General Page Styling */
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #FFFFFF;
+            background-color: #FFFFFF; /* White background */
         }
+
+        /* Sidebar Styling */
         [data-testid="stSidebar"] {
-            background: linear-gradient(to bottom, #F97316, #FB923C);
+            background: linear-gradient(to bottom, #F97316, #FB923C); /* Gradient background */
             color: white;
         }
+        [data-testid="stSidebar"] .css-1d391kg {
+            color: white; /* Text color for dropdown */
+        }
+
+        /* Title Section Styling */
         .title-container {
             text-align: center;
             margin-bottom: 2rem;
@@ -29,26 +39,35 @@ st.markdown("""
             color: #555555;
             font-size: 1.2rem;
         }
+
+        /* Project Card Styling */
         .project-card {
             border: 1px solid #e0e0e0;
             border-radius: 12px;
             padding: 1.5rem;
             text-align: center;
             transition: all 0.2s ease-in-out;
-            background: linear-gradient(to bottom, #F97316, #FB923C);
+            background: linear-gradient(to bottom, #F97316, #FB923C); /* Gradient background */
             box-shadow: 2px 2px 8px rgba(0,0,0,0.05);
         }
         .project-card:hover {
             box-shadow: 4px 4px 12px rgba(0,0,0,0.15);
             transform: scale(1.02);
         }
-        .project-card h3, .project-card p {
-            color: #FFFFFF;
+        .project-card h3 {
+            color: #FFFFFF; /* White text for titles */
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .project-card p {
+            color: #FFFFFF; /* White text for descriptions */
+            font-size: 1rem;
+            margin-bottom: 1rem;
         }
         .project-card a {
             display: inline-block;
             margin-top: 0.75rem;
-            background-color: #CF3331;
+            background-color: #CF3331; /* Red button */
             color: white;
             padding: 0.5rem 1.2rem;
             border-radius: 8px;
@@ -57,8 +76,10 @@ st.markdown("""
             transition: background-color 0.2s ease-in-out;
         }
         .project-card a:hover {
-            background-color: #A82828;
+            background-color: #A82828; /* Darker red on hover */
         }
+
+        /* Metabase Section Styling */
         .metabase-section {
             text-align: center;
             margin-top: 2rem;
@@ -108,7 +129,7 @@ with col1:
         <div class="project-card">
             <h3>📈 Vendor Tracker</h3>
             <p>Monitor and analyze vendor performance and key metrics.</p>
-            <a href="/Vendor_Tracker_1">Open</a>
+            <a href="/Vendor Tracker 1">Open</a>
         </div>
     """, unsafe_allow_html=True)
 
