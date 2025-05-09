@@ -94,7 +94,7 @@ st.markdown("""
         
         .stDownloadButton > button:hover,
         .gdrive-button:hover {
-            background-color: #A82828 !important;
+            background-color: #FFFFFF !important;
         }
         
         .gdrive-icon {
