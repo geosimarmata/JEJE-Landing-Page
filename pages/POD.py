@@ -72,16 +72,33 @@ st.markdown("""
             margin-top: 1.5rem;
         }
 
-        /* Custom Button Styling */
-        .stDownloadButton > button,
-        .gdrive-button {
+        /* Download Button Styling (keeps red background) */
+        .stDownloadButton > button {
             background-color: #CF3331 !important;
             color: white !important;
             border: none !important;
             border-radius: 8px !important;
             padding: 0.5rem 1.2rem !important;
             font-weight: 600 !important;
-            transition: background-color 0.2s ease-in-out !important;
+            transition: all 0.2s ease-in-out !important;
+            width: auto !important;
+            margin: 0 auto !important;
+            display: block !important;
+        }
+        
+        .stDownloadButton > button:hover {
+            background-color: #A82828 !important;
+        }
+
+        /* Google Drive Button Styling (white background, black text) */
+        .gdrive-button {
+            background-color: white !important;
+            color: black !important;
+            border: 1px solid #e0e0e0 !important;
+            border-radius: 8px !important;
+            padding: 0.5rem 1.2rem !important;
+            font-weight: 600 !important;
+            transition: all 0.2s ease-in-out !important;
             width: auto !important;
             margin: 0 auto !important;
             display: flex !important;
@@ -92,9 +109,9 @@ st.markdown("""
             cursor: pointer !important;
         }
         
-        .stDownloadButton > button:hover,
         .gdrive-button:hover {
-            background-color: #FFFFFF !important;
+            background-color: #f5f5f5 !important;
+            border-color: #d0d0d0 !important;
         }
         
         .gdrive-icon {
@@ -123,7 +140,7 @@ try:
                 <div class="button-container">
         """, unsafe_allow_html=True)
         
-        # Download button
+        # Download button (red)
         st.download_button(
             label="Download Tool",
             data=file,
@@ -131,7 +148,7 @@ try:
             mime="application/octet-stream"
         )
         
-        # Google Drive button with logo
+        # Google Drive button (white)
         st.markdown("""
             <a href="https://drive.google.com/drive/folders/YOUR_FOLDER_ID" 
                target="_blank" 
