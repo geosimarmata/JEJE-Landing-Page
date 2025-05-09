@@ -66,47 +66,46 @@ st.markdown("""
         /* Button Container Styling */
         .button-container {
             display: flex;
-            flex-direction: column;
             gap: 1rem;
+            justify-content: center;
             align-items: center;
             margin-top: 1.5rem;
+            flex-wrap: wrap;
         }
 
-        /* Download Button Styling (keeps red background) */
+        /* Base Button Styling (shared by both buttons) */
+        .stDownloadButton > button,
+        .gdrive-button {
+            border: none !important;
+            border-radius: 8px !important;
+            padding: 0.5rem 1.5rem !important;
+            font-weight: 600 !important;
+            font-size: 1rem !important;
+            transition: all 0.2s ease-in-out !important;
+            min-width: 180px;
+            height: 40px;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 0.5rem !important;
+        }
+
+        /* Download Button Styling (red) */
         .stDownloadButton > button {
             background-color: #CF3331 !important;
             color: white !important;
-            border: none !important;
-            border-radius: 8px !important;
-            padding: 0.5rem 1.2rem !important;
-            font-weight: 600 !important;
-            transition: all 0.2s ease-in-out !important;
-            width: auto !important;
-            margin: 0 auto !important;
-            display: block !important;
         }
         
         .stDownloadButton > button:hover {
             background-color: #A82828 !important;
         }
 
-        /* Google Drive Button Styling (white background, black text) */
+        /* Google Drive Button Styling (white) */
         .gdrive-button {
             background-color: white !important;
             color: black !important;
-            border: 1px solid #e0e0e0 !important;
-            border-radius: 8px !important;
-            padding: 0.5rem 1.2rem !important;
-            font-weight: 600 !important;
-            transition: all 0.2s ease-in-out !important;
-            width: auto !important;
-            margin: 0 auto !important;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            gap: 0.5rem !important;
             text-decoration: none !important;
-            cursor: pointer !important;
+            border: 1px solid #e0e0e0 !important;
         }
         
         .gdrive-button:hover {
@@ -148,9 +147,9 @@ try:
             mime="application/octet-stream"
         )
         
-        # Google Drive button (white)
+        # Google Drive button (white) - placed side by side
         st.markdown("""
-            <a href="https://drive.google.com/drive/folders/1hted3_-e7x2I7vs-toTXWJcCwPkve37H" 
+            <a href="https://drive.google.com/drive/folders/YOUR_FOLDER_ID" 
                target="_blank" 
                class="gdrive-button">
                 <img src="https://www.gstatic.com/images/branding/product/1x/drive_2020q4_48dp.png" 
