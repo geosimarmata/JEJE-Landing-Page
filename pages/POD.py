@@ -63,8 +63,18 @@ st.markdown("""
             margin-bottom: 1.5rem;
         }
 
-        /* Custom Download Button Styling */
-        .stDownloadButton > button {
+        /* Button Container Styling */
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+            margin-top: 1.5rem;
+        }
+
+        /* Custom Button Styling */
+        .stDownloadButton > button,
+        .custom-button {
             background-color: #CF3331 !important;
             color: white !important;
             border: none !important;
@@ -75,9 +85,13 @@ st.markdown("""
             width: auto !important;
             margin: 0 auto !important;
             display: block !important;
+            text-decoration: none !important;
+            text-align: center !important;
+            cursor: pointer !important;
         }
         
-        .stDownloadButton > button:hover {
+        .stDownloadButton > button:hover,
+        .custom-button:hover {
             background-color: #A82828 !important;
         }
     </style>
@@ -91,24 +105,37 @@ st.markdown("""
     </div>
 """, unsafe_allow_html=True)
 
-# Add a styled download card with a button
+# Add a styled download card with buttons
 file_path = os.path.join(os.path.dirname(__file__), "rename_file_pod (1).bat")
 try:
     with open(file_path, "rb") as file:
         st.markdown("""
             <div class="download-card">
                 <h3>Download Auto Rename ZIP Tool</h3>
-                <p>Click the button below to download the tool.</p>
+                <p>Click the button below to download the tool or view additional documentation.</p>
+                <div class="button-container">
         """, unsafe_allow_html=True)
         
-        # This will create a red button inside the orange card
+        # Download button
         st.download_button(
-            label="Download",
+            label="Download Tool",
             data=file,
             file_name="Auto_Rename_ZIP_Tool.bat",
             mime="application/octet-stream"
         )
         
-        st.markdown("</div>", unsafe_allow_html=True)
+        # Google Drive button
+        st.markdown("""
+            <a href="https://drive.google.com/drive/folders/YOUR_FOLDER_ID" 
+               target="_blank" 
+               class="custom-button">
+                View Documentation on Google Drive
+            </a>
+        """, unsafe_allow_html=True)
+        
+        st.markdown("""
+                </div>
+            </div>
+        """, unsafe_allow_html=True)
 except FileNotFoundError:
     st.error("The file 'rename_file_pod (1).bat' was not found. Please ensure it exists in the 'pages' folder.")
