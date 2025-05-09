@@ -129,7 +129,7 @@ with col1:
         <div class="project-card">
             <h3>📈 Vendor Tracker</h3>
             <p>Monitor and analyze vendor performance and key metrics.</p>
-            <a href="/Vendor Tracker 1">Open</a>
+            <a href="/Vendor Tracker">Open</a>
         </div>
     """, unsafe_allow_html=True)
 
