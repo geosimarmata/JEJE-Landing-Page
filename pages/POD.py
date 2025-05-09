@@ -118,13 +118,14 @@ try:
                 <p>Click the button below to download the tool.</p>
             </div>
         """, unsafe_allow_html=True)
-        st.markdown('<div class="download-button-wrapper">', unsafe_allow_html=True)
-        st.download_button(
-            label="Download",
-            data=file,
-            file_name="Auto_Rename_ZIP_Tool.bat",
-            mime="application/octet-stream"
-        )
-        st.markdown('</div>', unsafe_allow_html=True)
+        col1, col2, col3 = st.columns([1, 2, 1])  # Create 3 columns, center is wider
+        with col2:
+            st.download_button(
+                label="Download",
+                data=file,
+                file_name="Auto_Rename_ZIP_Tool.bat",
+                mime="application/octet-stream"
+            )
+
 except FileNotFoundError:
     st.error("The file 'rename_file_pod (1).bat' was not found. Please ensure it exists in the 'pages' folder.")
