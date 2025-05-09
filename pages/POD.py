@@ -63,21 +63,22 @@ st.markdown("""
             margin-bottom: 1.5rem;
         }
 
-        /* Natural Download Button Styling */
+        /* Custom Download Button Styling */
         .stDownloadButton > button {
-            background-color: #FFFFFF !important;
-            color: #F97316 !important;
-            border: 2px solid #FFFFFF !important;
+            background-color: #CF3331 !important;
+            color: white !important;
+            border: none !important;
             border-radius: 8px !important;
-            padding: 0.75rem 1.5rem !important;
-            font-weight: bold !important;
-            transition: all 0.3s ease !important;
+            padding: 0.5rem 1.2rem !important;
+            font-weight: 600 !important;
+            transition: background-color 0.2s ease-in-out !important;
+            width: auto !important;
+            margin: 0 auto !important;
+            display: block !important;
         }
         
         .stDownloadButton > button:hover {
-            background-color: transparent !important;
-            color: #FFFFFF !important;
-            border: 2px solid #FFFFFF !important;
+            background-color: #A82828 !important;
         }
     </style>
 """, unsafe_allow_html=True)
@@ -98,10 +99,9 @@ try:
             <div class="download-card">
                 <h3>Download Auto Rename ZIP Tool</h3>
                 <p>Click the button below to download the tool.</p>
-                <div style="margin-top: 1.5rem;">
         """, unsafe_allow_html=True)
         
-        # This will create a more natural-looking download button
+        # This will create a red button inside the orange card
         st.download_button(
             label="Download",
             data=file,
