@@ -74,7 +74,7 @@ st.markdown("""
 
         /* Custom Button Styling */
         .stDownloadButton > button,
-        .custom-button {
+        .gdrive-button {
             background-color: #CF3331 !important;
             color: white !important;
             border: none !important;
@@ -84,15 +84,22 @@ st.markdown("""
             transition: background-color 0.2s ease-in-out !important;
             width: auto !important;
             margin: 0 auto !important;
-            display: block !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 0.5rem !important;
             text-decoration: none !important;
-            text-align: center !important;
             cursor: pointer !important;
         }
         
         .stDownloadButton > button:hover,
-        .custom-button:hover {
+        .gdrive-button:hover {
             background-color: #A82828 !important;
+        }
+        
+        .gdrive-icon {
+            width: 20px;
+            height: 20px;
         }
     </style>
 """, unsafe_allow_html=True)
@@ -124,12 +131,15 @@ try:
             mime="application/octet-stream"
         )
         
-        # Google Drive button
+        # Google Drive button with logo
         st.markdown("""
             <a href="https://drive.google.com/drive/folders/YOUR_FOLDER_ID" 
                target="_blank" 
-               class="custom-button">
-                View Documentation on Google Drive
+               class="gdrive-button">
+                <img src="https://www.gstatic.com/images/branding/product/1x/drive_2020q4_48dp.png" 
+                     alt="Google Drive" 
+                     class="gdrive-icon">
+                View Documentation
             </a>
         """, unsafe_allow_html=True)
         
