@@ -177,8 +177,6 @@ if st.session_state.extract_dir and st.session_state.sheet_name:
                 except Exception as e:
                     st.warning(f"Error reading {os.path.basename(file_path)}: {e}")
 
-# ...existing code...
-
         if all_data:
             combined_df = pd.concat(all_data, ignore_index=True)
             st.session_state.combined_df = combined_df
