@@ -138,7 +138,7 @@ if uploaded_zip and st.sidebar.button("🔍 Extract & Load Sheets"):
 
 # ------------------------ SELECT SHEET ------------------------ #
 # Filter sheet names to include only specific ones
-desired_sheets = ["OH!SOME", "SPX FTL", "LOTTE"]
+desired_sheets = ["OH!SOME", "SPX FTL", "SPX FTL", "SPX RENT 12 JAM", "SPX RENT 24 JAM"]
 
 if st.session_state.sheet_names:  # Ensure sheet names are loaded
     filtered_sheet_names = [sheet for sheet in st.session_state.sheet_names if sheet in desired_sheets]
@@ -147,11 +147,11 @@ else:
 
 if uploaded_zip and st.session_state.sheet_names:  # Only show the select box if sheets are loaded
     if filtered_sheet_names:
-        st.session_state.sheet_name = st.sidebar.selectbox("📄 Select Sheet to Process", filtered_sheet_names)
+        st.session_state.sheet_name = st.sidebar.selectbox("📄 Select Shipper to Process", filtered_sheet_names)
     else:
         # Display a warning with the file names that were processed
         st.warning(
-            f"No matching sheets found in the uploaded files. "
+            f"No matching Shipper found in the uploaded files. "
             f"Processed files: {', '.join([os.path.basename(file) for file in excel_files])}"
         )
         
@@ -184,7 +184,7 @@ if st.session_state.extract_dir and st.session_state.sheet_name:
             df = combined_df.copy()
 
             # Predefined truck types
-            predefined_truck_types = ['VAN BOX', 'BLINDVAN', 'CDE', 'CDE LONG', 'CDD', 'CDD LONG', 'FUSO', 'FUSO LONG', 'TRONTON WINGBOX']
+            predefined_truck_types = ['VAN BOX', 'BLINDVAN', 'CDE', 'CDE LONG', 'CDD', 'CDD LONG', 'FUSO', 'FUSO LONG', 'TRONTON', 'TRONTON WINGBOX']
 
             # Clean column names to remove "Unnamed" and "#REF!"
             df.columns = df.columns.str.strip()  # Remove leading/trailing spaces
