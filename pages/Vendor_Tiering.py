@@ -287,6 +287,6 @@ if st.session_state.tiered_df is not None:
     st.download_button(
         label="⬇️ Download Filtered CSV",
         data=filtered_df.to_csv(index=False),
-        file_name="tiered_vendor_data.csv",
+        file_name=f"{selected_sheet.replace(' ', '_').replace('!', '').lower()}_tiered_vendor.csv",
         mime="text/csv"
     )
