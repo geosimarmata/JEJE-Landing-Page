@@ -138,7 +138,7 @@ if uploaded_zip and st.sidebar.button("🔍 Extract & Load Sheets"):
 
 # ------------------------ SELECT SHEET ------------------------ #
 # Filter sheet names to include only specific ones
-desired_sheets = ["OH!SOME", "SPX FTL", "SPX FTL", "SPX RENT 12 JAM", "SPX RENT 24 JAM"]
+desired_sheets = ["OH!SOME", "SPX FTL", "SPX RENT 12 JAM", "SPX RENT 24 JAM"]
 
 if st.session_state.sheet_names:  # Ensure sheet names are loaded
     filtered_sheet_names = [sheet for sheet in st.session_state.sheet_names if sheet in desired_sheets]
@@ -265,20 +265,20 @@ if st.session_state.tiered_df is not None:
 
     # Rename columns and reorder them
     filtered_df = filtered_df.rename(columns={
-        "truck_type": "Type Truck",
-        "origin_city": "Origin",
-        "destination_city": "Destination",
-        "price": "Transport Price",
-        "vendor": "Transporter",
-        "tier": "Tiering"
+        "truck_type": "truck_type_name",
+        "origin_city": "city_origin_name",
+        "destination_city": "city_destination_name",
+        "price": "price",
+        "vendor": "transporter_name",
+        "tier": "tiering"
     })
-    filtered_df = filtered_df[["Type Truck", "Origin", "Destination", "Transport Price", "Transporter", "Tiering"]]
+    filtered_df = filtered_df[["truck_type_name", "city_origin_name", "city_destination_name", "price", "transporter_name", "tiering"]]
 
     # Add a "Status" column with the value "Active" (can be commented out if not needed)
-    filtered_df["Status"] = "Active"
+    filtered_df["status"] = "Active"
 
     # Format the "Transport Price" column to remove ".0"
-    filtered_df["Transport Price"] = filtered_df["Transport Price"].astype(int)
+    filtered_df["price"] = filtered_df["price"].astype(int)
 
     # Display the filtered dataframe
     st.dataframe(filtered_df)
