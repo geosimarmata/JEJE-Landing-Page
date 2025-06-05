@@ -1,3 +1,8 @@
+# 
+# This is next model after test.py.
+# This model more robutst to generate tiering system for manny Shipper like OH!SOME, SPX FTL, LOTTE.
+# This model also can generate tiering system for all shipper in one click.
+
 import streamlit as st
 import zipfile
 import pandas as pd
@@ -242,8 +247,9 @@ if st.session_state.extract_dir and st.session_state.sheet_name:
 # ------------------------ DATA PREVIEW & FILTER ------------------------ #
 if st.session_state.tiered_df is not None:
     st.header("📊 Tiered Vendor Data Preview")
+
+    # Base DataFrame
     df = st.session_state.tiered_df.copy()
-    df["shipper_name"] = st.session_state.sheet_name
 
     # Sidebar filters
     vendor_filter = st.sidebar.selectbox("🔎 Filter by Vendor", ["All"] + sorted(df["vendor"].unique()))
@@ -258,7 +264,10 @@ if st.session_state.tiered_df is not None:
         filtered_df = filtered_df[filtered_df["origin_city"] == origin_filter]
     if destination_filter != "All":
         filtered_df = filtered_df[filtered_df["destination_city"] == destination_filter]
-
+        
+    # Add shipper name AFTER filtering
+    filtered_df["shipper_name"] = st.session_state.sheet_name
+    
     # Rename columns and reorder them
     filtered_df = filtered_df.rename(columns={
         "truck_type": "truck_type_name",
